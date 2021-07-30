@@ -1,0 +1,57 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}student-eLearning{% endblock title %}
+
+{% block content %}
+<div class=" mx-auto text-center">
+
+
+
+  <div class="container">
+      <div class="row">
+          <div class="col">
+              <h2>List of Courses</h2>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col">
+               <table id="course-table" class="table table-bordered table-condensed table-striped">
+                  <thead>
+                      <tr>
+                          <th>id</th>
+                          <th>Course Title</th>
+                          <th>Educator</th>
+                          <th>Action</th>
+
+                      </tr>
+                  </thead>
+                  <tbody>
+
+
+              </table>
+          </div>
+      </div>
+  </div>
+
+
+</div>
+
+<form id="enrollment-form" method="POST" js-enrollment-url="{% url 'learner_api' %}" style="display:none" >
+
+<input id="course-id-input" type="text" name="course_id">
+
+{% csrf_token %}
+</form>
+
+
+{% endblock content %}
+
+
+{% block javascript %}
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js">
+
+</script>
+<script src="{% static 'js/learner.js' %}"></script>
+{% endblock javascript %}
